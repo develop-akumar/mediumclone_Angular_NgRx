@@ -38,6 +38,12 @@ export class RegisterComponent {
     console.log("form Value = ", this.form.getRawValue());
     const request: RegisterRequestInterface = {
       user: this.form.getRawValue()
+
+
+
+
+
+
       
     }
 
