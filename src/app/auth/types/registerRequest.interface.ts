@@ -1,7 +1,6 @@
 export interface RegisterRequestInterface {
-    user: {
-        email:string
-        password:string
-        username:string
-    }
+    id: number
+    email: string
+    password: string
+    username: string
 }

@@ -12,11 +12,13 @@ import { appRoutes } from './app/app.routes';
 import { provideState, provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { authFeatureKey, authReducer } from './app/auth/store.ts/reducers';
+import { provideHttpClient } from '@angular/common/http';
 
 bootstrapApplication(AppComponent, {
     providers: [
         provideRouter(appRoutes),
         provideStore(),
+        provideHttpClient(),
         provideState(authFeatureKey, authReducer),
         provideStoreDevtools({
             maxAge: 25,
