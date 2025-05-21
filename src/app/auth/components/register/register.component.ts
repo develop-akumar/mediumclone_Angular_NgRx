@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { register } from '../../store.ts/actions';
+// import { register } from '../../store.ts/actions';
 import { RegisterRequestInterface } from '../../types/registerRequest.interface';
 import { RouterLink } from '@angular/router';
 import { selectIsSubmitting } from '../../store.ts/reducers';
@@ -31,7 +31,7 @@ export class RegisterComponent {
 
   constructor(
     private fb: FormBuilder,
-    private store: Store<{ auth: AuthStateInterface }>,
+    private store: Store,
     private authService: AuthService
   ) {
 
@@ -42,11 +42,12 @@ export class RegisterComponent {
     const request: RegisterRequestInterface = this.form.getRawValue()
     request.id = 0
 
-    this.store.dispatch(register({ request }),)
-    this.authService.register(request)
-      .subscribe((res) => {
-        console.log('res = ', res);
-      })
+    this.store.dispatch(register({ request }))
+
+    // this.authService.register(request)
+    //   .subscribe((res) => {
+    //     console.log('res = ', res);
+    //   })
   }
 
 
