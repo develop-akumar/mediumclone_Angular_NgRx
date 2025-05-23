@@ -22,6 +22,11 @@ export class AuthService {
 
         // const url = '/api/users'
         return this.http.post<AuthResponseInterface>(url, data)
-            .pipe(map((response) => response.user))
+            .pipe(map((response) => {
+                console.log('signup response = ', response.user);
+                return response.user
+
+            }
+            ))
     }
 }

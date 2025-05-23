@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 // import { register } from '../../store.ts/actions';
+import { authActions } from '../../store.ts/actions';
 import { RegisterRequestInterface } from '../../types/registerRequest.interface';
 import { RouterLink } from '@angular/router';
 import { selectIsSubmitting } from '../../store.ts/reducers';
@@ -42,7 +43,7 @@ export class RegisterComponent {
     const request: RegisterRequestInterface = this.form.getRawValue()
     request.id = 0
 
-    this.store.dispatch(register({ request }))
+    this.store.dispatch(authActions.register({ request }))
 
     // this.authService.register(request)
     //   .subscribe((res) => {

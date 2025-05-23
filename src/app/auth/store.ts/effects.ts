@@ -10,7 +10,9 @@ export const registerEffect = createEffect(
         return actions$.pipe(
             // ofType pipe to react for register action only
             ofType(authActions.register),
+            // When register function happens, below code gets executed
             // SwitchMap() returns and Observable
+            // authService.register() hits an API and if successful go to map, if failure go to catch error
             switchMap(({ request }) => {
                 return authService.register(request).pipe(
                     map((currentUser: CurrentUserInterface) => {
