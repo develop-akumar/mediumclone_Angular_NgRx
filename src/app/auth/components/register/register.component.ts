@@ -5,10 +5,11 @@ import { Store } from '@ngrx/store';
 import { authActions } from '../../store.ts/actions';
 import { RegisterRequestInterface } from '../../types/registerRequest.interface';
 import { RouterLink } from '@angular/router';
-import { selectIsSubmitting } from '../../store.ts/reducers';
+import { selectIsSubmitting, selectValidationErrors } from '../../store.ts/reducers';
 import { AuthStateInterface } from '../../types/authState.interface';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
+import { combineLatest } from 'rxjs';
 
 @Component({
   selector: 'mc-register',
@@ -28,7 +29,13 @@ export class RegisterComponent {
     password: ['', Validators.required]
   });
 
-  isSubmitting$ = this.store.select(selectIsSubmitting)
+  // isSubmitting$ = this.store.select(selectIsSubmitting)
+  // backendErrors$ = this.store.select(selectValidationErrors)
+
+  data$ = combineLatest({
+    isSubmitting: this.store.select(selectIsSubmitting),
+    backendErrors: this.store.select(selectValidationErrors)
+  })
 
   constructor(
     private fb: FormBuilder,
