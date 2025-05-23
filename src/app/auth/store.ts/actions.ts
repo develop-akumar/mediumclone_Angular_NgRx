@@ -1,6 +1,7 @@
 import { createAction, createActionGroup, props, emptyProps } from "@ngrx/store";
 import { RegisterRequestInterface } from "../types/registerRequest.interface";
 import { CurrentUserInterface } from "src/app/shared/types/currentUser.interface";
+import { BackendErrorsInterface } from "src/app/shared/types/backendErrors.interface";
 
 export const authActions = createActionGroup({
     source: 'auth',
@@ -8,7 +9,7 @@ export const authActions = createActionGroup({
         // action name : return value type
         Register: props<{ request: RegisterRequestInterface }>(),
         'Register Success': props<{ CurrentUser: CurrentUserInterface }>(),
-        'Register Failure': emptyProps()  // we will not have anything back, but just type stream
+        'Register Failure': props<{errors : BackendErrorsInterface}>()  // we will not have anything back, but just type stream
     }
 })
 
