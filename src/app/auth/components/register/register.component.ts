@@ -11,6 +11,8 @@ import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
 import { combineLatest } from 'rxjs';
 
+import { BackendErrorMessagesComponent } from 'src/app/shared/components/backend-error-messages/backend-error-messages.component';
+
 @Component({
   selector: 'mc-register',
   templateUrl: './register.component.html',
@@ -19,7 +21,8 @@ import { combineLatest } from 'rxjs';
   imports: [
     ReactiveFormsModule,
     RouterLink,
-    CommonModule
+    CommonModule,
+    BackendErrorMessagesComponent
   ]
 })
 export class RegisterComponent {
