@@ -14,8 +14,8 @@ const authFeature = createFeature({
     reducer: createReducer(initialState,
         on(authActions.register,
             (state) => ({ ...state, isSubmitting: true, validationErrors: null })),
-        on(authActions.registerSuccess,
-            (state, action) => ({ ...state, isSubmitting: false, currentUser: action.CurrentUser })),
+        // on(authActions.registerSuccess,
+        //     (state, action) => ({ ...state, isSubmitting: false, currentUser: action.CurrentUser })),
         on(authActions.registerFailure,
             (state, action) => ({ ...state, isSubmitting: false, validationErrors: action.errors })),
     )

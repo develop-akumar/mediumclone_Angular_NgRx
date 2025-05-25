@@ -5,3 +5,7 @@ export interface CurrentUserInterface {
     bio: string | null
     image: string
 }
+
+export interface signUpResponseInterface{
+    id:number
+}

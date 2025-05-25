@@ -3,7 +3,7 @@ import { HttpClient } from "@angular/common/http"
 import { Observable, map } from "rxjs";
 
 import { RegisterRequestInterface } from "../types/registerRequest.interface";
-import { CurrentUserInterface } from "src/app/shared/types/currentUser.interface";
+import { CurrentUserInterface, signUpResponseInterface } from "src/app/shared/types/currentUser.interface";
 import { AuthResponseInterface } from "../types/authResponse.interface";
 import { environment } from "src/environments/environment";
 
@@ -17,14 +17,14 @@ export class AuthService {
         private http: HttpClient
     ) { }
 
-    register(data: RegisterRequestInterface): Observable<CurrentUserInterface> {
+    register(data: RegisterRequestInterface): Observable<signUpResponseInterface> {
         const url = environment.apiUrl + '/users'
 
         // const url = '/api/users'
-        return this.http.post<AuthResponseInterface>(url, data)
+        return this.http.post<signUpResponseInterface>(url, data)
             .pipe(map((response) => {
-                console.log('signup response = ', response.user);
-                return response.user
+                console.log('signup response = ', response);
+                return response
 
             }
             ))
