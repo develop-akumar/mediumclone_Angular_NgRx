@@ -4,3 +4,4 @@ export interface RegisterRequestInterface {
     name: string
     id:number
 }
+

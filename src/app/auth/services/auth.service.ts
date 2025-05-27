@@ -6,6 +6,7 @@ import { RegisterRequestInterface } from "../types/registerRequest.interface";
 import { CurrentUserInterface, signUpResponseInterface } from "src/app/shared/types/currentUser.interface";
 import { AuthResponseInterface } from "../types/authResponse.interface";
 import { environment } from "src/environments/environment";
+import { loginRequestInterface, loginSuccessInterface } from "../types/loginRequest.inerface";
 
 @Injectable({
     providedIn: 'root'
@@ -26,6 +27,18 @@ export class AuthService {
                 console.log('signup response = ', response);
                 return response
 
+            }
+            ))
+    }
+
+
+    login(data: loginRequestInterface): Observable<loginSuccessInterface> {
+        const url = environment.apiUrl + '/auth/login'
+
+        return this.http.post<loginSuccessInterface>(url, data)
+            .pipe(map((response) => {
+                console.log('login response = ', response);
+                return response
             }
             ))
     }
