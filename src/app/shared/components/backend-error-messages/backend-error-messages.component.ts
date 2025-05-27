@@ -19,8 +19,12 @@ export class BackendErrorMessagesComponent implements OnInit {
     this.errorMessages = Object.keys(this.backendErrors)
       .map((name: string) => {
         const messages = this.backendErrors[name].join(" ")
-        return `${name} ${messages}`
+        return `${name} ${messages}` 
       })
+      // .map((name: string) => {
+      //   const messages = this.backendErrors[name].join(" ")
+      //   return `${name} ${messages}` 
+      // })
   }
 
 }
