@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http"
+import { HttpClient, HttpHeaders } from "@angular/common/http"
 import { Observable, map } from "rxjs";
 
 import { RegisterRequestInterface } from "../types/registerRequest.interface";
@@ -18,6 +18,12 @@ export class AuthService {
         private http: HttpClient
     ) { }
 
+    httpOptions = {
+        headers: new HttpHeaders({
+            'Content-Type': 'application/json',
+        }),
+    };
+
     register(data: RegisterRequestInterface): Observable<signUpResponseInterface> {
         const url = environment.apiUrl + '/users'
 
@@ -35,7 +41,7 @@ export class AuthService {
     login(data: loginRequestInterface): Observable<loginSuccessInterface> {
         const url = environment.apiUrl + '/auth/login'
 
-        return this.http.post<loginSuccessInterface>(url, data)
+        return this.http.post<loginSuccessInterface>(url, data, this.httpOptions)
             .pipe(map((response) => {
                 console.log('login response = ', response);
                 return response
