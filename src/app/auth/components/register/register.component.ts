@@ -45,7 +45,7 @@ export class RegisterComponent {
     private store: Store,
     private authService: AuthService
   ) {
-
+    this.authService.getAllUsers()
   }
 
   onSubmit() {

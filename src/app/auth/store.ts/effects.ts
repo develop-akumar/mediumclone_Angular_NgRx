@@ -68,6 +68,7 @@ export const loginEffect = createEffect(
                         return authActions.loginSuccess({ CurrentUser: currentUser })
                     }),
                     catchError((errorResponse: HttpErrorResponse) => {
+                        console.log('errorResponse = ', errorResponse.error);
                         return of(authActions.loginFailure({ errors: errorResponse.error.errors }))
                     })
                 )

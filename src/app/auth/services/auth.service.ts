@@ -42,10 +42,20 @@ export class AuthService {
         const url = environment.apiUrl + '/auth/login'
 
         return this.http.post<loginSuccessInterface>(url, data, this.httpOptions)
-            .pipe(map((response) => {
+            .pipe(
+                map((response) => {
                 console.log('login response = ', response);
                 return response
             }
             ))
+    }
+
+
+    getAllUsers(){
+        let url = 'https://fakestoreapi.com/users'
+        this.http.get(url).subscribe((res)=>{
+            console.log('res = ', res);
+        
+        })
     }
 }

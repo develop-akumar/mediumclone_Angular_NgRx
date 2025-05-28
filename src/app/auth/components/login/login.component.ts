@@ -46,6 +46,10 @@ export class LoginComponent {
 
   }
 
+  // username - johnd
+  // email - john@gmail.com
+  // password - m38rmF$
+
   onSubmit() {
     if (this.form.valid) {
       console.log("form Value = ", this.form.getRawValue());
