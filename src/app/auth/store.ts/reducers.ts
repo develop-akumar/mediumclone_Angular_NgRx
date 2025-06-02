@@ -31,6 +31,7 @@ const authFeature = createFeature({
             (state, action) => ({
                 ...state, isSubmitting: false,
                 // currentUser: action.CurrentUser
+                // currentUser: action.CurrentUser
             })),
         on(authActions.loginFailure,
             (state, action) => ({ ...state, isSubmitting: false, validationErrors: action.errors })),
