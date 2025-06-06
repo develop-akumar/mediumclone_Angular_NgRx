@@ -37,6 +37,7 @@ const authFeature = createFeature({
             (state, action) => ({ ...state, isSubmitting: false, validationErrors: action.errors })),
 
         // to clean validation error
+        // on(routerNavigationAction, (state) => ({ ...state, validationErrors: null }))
         on(routerNavigationAction, (state) => ({ ...state, validationErrors: null }))
     )
 })
