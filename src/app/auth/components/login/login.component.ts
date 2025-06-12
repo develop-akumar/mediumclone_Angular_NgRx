@@ -41,7 +41,8 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private store: Store,
-    private authService: AuthService
+    private authService: AuthService,
+    // @Inject('apiUrl') private apiUrl:string
   ) {
 
   }
