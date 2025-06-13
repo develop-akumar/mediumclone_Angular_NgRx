@@ -35,6 +35,7 @@ export class LoginComponent {
 
   data$ = combineLatest({
     isSubmitting: this.store.select(selectIsSubmitting),
+    // backendErrors: this.store.select(selectValidationErrors)
     backendErrors: this.store.select(selectValidationErrors)
   })
 
