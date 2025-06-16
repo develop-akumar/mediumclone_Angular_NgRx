@@ -61,6 +61,7 @@ export class LoginComponent {
 
     } else {
       console.log('the form is invalid = ',);
+      console.log('the form is invalid = ',);
     }
 
   }
