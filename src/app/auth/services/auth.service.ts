@@ -31,6 +31,7 @@ export class AuthService {
         return this.http.post<signUpResponseInterface>(url, data)
             .pipe(map((response) => {
                 console.log('signup response = ', response);
+                // return response
                 return response
 
             }
